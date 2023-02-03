@@ -8,6 +8,8 @@ import Projets from "../components/Projet";
 import Contact from "../components/Contact";
 import EasterEgg from "../components/EasterEgg";
 import FinalEasterEgg from "../components/FinalEasterEgg";
+import LineRight from "../components/LineRight";
+import LineLeft from "../components/LineLeft";
 
 export default function Home() {
   return (
@@ -35,6 +37,8 @@ export default function Home() {
         <Projets />
         <Contact />
         <EasterEgg />
+        <LineLeft />
+        <LineRight />
       </Stack>
     </>
   );

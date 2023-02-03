@@ -23,7 +23,7 @@ export default function EasterEgg() {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Button onClick={handleOpen}></Button>
       <Modal
         open={open}
@@ -48,6 +48,6 @@ export default function EasterEgg() {
           />
         </Box>
       </Modal>
-    </div>
+    </Box>
   );
 }
