@@ -17,7 +17,7 @@
   },
   "scripts": {
     "setup": "yarn install && husky install",
-    "dev": "NODE_ENV=DEV nodemon server.js",
+    "dev": "nodemon server.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },

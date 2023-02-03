@@ -57,21 +57,26 @@ const InfoProjet = [
     date: "09/2022",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus corporis veritatis nemo obcaecati excepturi rem nulla nisi a earum voluptatum amet asperiores ipsum iusto, ullam placeat magnam eligendi aliquid accusantium",
-    link: `https://github.com/nowaklouis/Game-of-Life`,
+    link: `/MExico.jpg`,
     Team: "false",
     img: "/projet 5.png",
   },
 ];
 
 export default function Projets() {
-  const [page, setPage] = useState(1);
+  const [projetR, setProjetR] = useState(1);
+  const [projetP, setProjetP] = useState(1);
 
   const handleChange = (a, p) => {
-    setPage(p);
+    setProjetR(p);
+  };
+
+  const someChange = (a, p) => {
+    setProjetP(p);
   };
 
   return (
-    <Box>
+    <Box id="Projet">
       <Typography variant="h1" color="info.main" sx={{ textAlign: "center" }}>
         Projet JavaScript
       </Typography>
@@ -79,43 +84,45 @@ export default function Projets() {
         sx={{ display: "flex", justifyContent: "center", paddingTop: "5rem" }}
       >
         <Stack spacing={2}>
-          {InfoProjet.filter((result) => result.id === page).map((projet) => (
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Card
-                sx={{
-                  background: "rgba(0, 0, 0, 0.1)",
-                  width: "60%",
-                  display: "flex",
-                }}
-              >
-                <Box>
-                  <Typography variant="h2" sx={{ p: "1.5rem" }}>
-                    {projet?.name}
-                  </Typography>
-                  <Typography>{projet?.base}</Typography>
-                  <Typography>Créer: {projet?.date}</Typography>
-                  <Typography>{projet?.description}</Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "end",
-                      paddingTop: "2rem",
-                    }}
-                  >
-                    <Button variant="contained" color="info">
-                      <Link href={projet?.link}> Un Apercu ?</Link>
-                    </Button>
+          {InfoProjet.filter((result) => result.id === projetR).map(
+            (projet) => (
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Card
+                  sx={{
+                    background: "rgba(0, 0, 0, 0.1)",
+                    width: "60%",
+                    display: { md: "flex", sx: "none" },
+                  }}
+                >
+                  <Box>
+                    <Typography variant="h2" sx={{ p: "1.5rem" }}>
+                      {projet?.name}
+                    </Typography>
+                    <Typography>{projet?.base}</Typography>
+                    <Typography>Créer: {projet?.date}</Typography>
+                    <Typography>{projet?.description}</Typography>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "end",
+                        paddingTop: "2rem",
+                      }}
+                    >
+                      <Button variant="contained" color="info">
+                        <Link href={projet?.link}> Un Apercu ?</Link>
+                      </Button>
+                    </Box>
                   </Box>
-                </Box>
-                <CardMedia
-                  component="img"
-                  sx={{ width: 300, p: "10px" }}
-                  image={projet?.img}
-                  alt="projets"
-                />
-              </Card>
-            </Box>
-          ))}
+                  <CardMedia
+                    component="img"
+                    sx={{ width: 300, p: "10px" }}
+                    image={projet?.img}
+                    alt="projets"
+                  />
+                </Card>
+              </Box>
+            )
+          )}
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Pagination
               count={5}
@@ -142,7 +149,7 @@ export default function Projets() {
             count={5}
             shape="rounded"
             color="info"
-            onChange={handleChange}
+            onChange={someChange}
           />
         </Stack>
       </Box>

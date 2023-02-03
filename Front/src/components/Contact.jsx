@@ -16,22 +16,43 @@ export default function OutlinedCard() {
     lastname: "",
     firstname: "",
     email: "",
-    phone: "",
     message: "",
   });
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
-  const SendMessage = (e) => {
+  const SendMessage = async (e) => {
     e.preventDefault();
-    console.log(send);
+    if (!isLoading) {
+      setIsLoading(true);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(send),
+      });
+
+      const result = await response.json();
+
+      setIsLoading(false);
+
+      if (!response.ok) {
+        console.log("error");
+      } else {
+        console.log("GREAT");
+      }
+
+      console.log(send);
+    }
+
     setOpen(true);
   };
 
@@ -40,7 +61,10 @@ export default function OutlinedCard() {
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", paddingTop: "5rem" }}>
+    <Box
+      id="Contact"
+      sx={{ display: "flex", justifyContent: "center", paddingTop: "5rem" }}
+    >
       <Card
         variant="outlined"
         sx={{
@@ -85,17 +109,6 @@ export default function OutlinedCard() {
               </Grid>
               <Grid xs={12} item>
                 <TextField
-                  type="number"
-                  label="Tel"
-                  name="phone"
-                  variant="outlined"
-                  fullWidth
-                  required
-                  onChange={totalMessage}
-                />
-              </Grid>
-              <Grid xs={12} item>
-                <TextField
                   label="Message"
                   name="message"
                   multiline
@@ -106,16 +119,18 @@ export default function OutlinedCard() {
                   onChange={totalMessage}
                 />
               </Grid>
-              <Button
-                type="submit"
-                variant="Contained"
-                color="info.main"
-                fullWidth
-                sx={{ backgroundColor: "info.main", marginTop: "1rem" }}
-                onClick={SendMessage}
-              >
-                Envoyer
-              </Button>
+              {!isLoading && (
+                <Button
+                  type="submit"
+                  variant="Contained"
+                  color="info.main"
+                  fullWidth
+                  sx={{ backgroundColor: "info.main", marginTop: "1rem" }}
+                  onClick={SendMessage}
+                >
+                  Envoyer
+                </Button>
+              )}
               <Snackbar
                 open={open}
                 autoHideDuration={6000}

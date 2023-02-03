@@ -15,7 +15,10 @@ export default function LabTabs() {
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", paddingTop: "5rem" }}>
+    <Box
+      id="Experience"
+      sx={{ display: "flex", justifyContent: "center", paddingTop: "5rem" }}
+    >
       <Box sx={{ width: "50%" }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

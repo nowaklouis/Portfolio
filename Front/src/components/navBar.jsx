@@ -9,8 +9,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-
-const pages = ["présentation", "Experience", "Projet", "Contact"];
+import Stack from "@mui/material/Stack";
+import * as Scroll from "react-scroll";
+import { Link } from "react-scroll/modules";
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -68,15 +69,14 @@ function NavBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ color: "#CC8B65" }}
-                >
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu} sx={{ color: "#CC8B65" }}>
+                <Stack>
+                  <Typography textAlign="start">Présentation</Typography>
+                  <Typography textAlign="start">Expérience</Typography>
+                  <Typography textAlign="start">Projet</Typography>
+                  <Typography textAlign="start">Contact</Typography>
+                </Stack>
+              </MenuItem>
             </Menu>
           </Box>
           <Box
@@ -86,19 +86,78 @@ function NavBar() {
               justifyContent: "end",
             }}
           >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color: "#CC8B65",
-                  display: "block",
-                }}
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "#CC8B65",
+                display: "block",
+              }}
+            >
+              <Link
+                to="Presentation"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
               >
-                {page}
-              </Button>
-            ))}
+                Présentation
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "#CC8B65",
+                display: "block",
+              }}
+            >
+              <Link
+                to="Experience"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Expérience
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "#CC8B65",
+                display: "block",
+              }}
+            >
+              <Link
+                to="Projet"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Projet
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "#CC8B65",
+                display: "block",
+              }}
+            >
+              <Link
+                to="Contact"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Contact
+              </Link>
+            </Button>
           </Box>
         </Toolbar>
       </Container>

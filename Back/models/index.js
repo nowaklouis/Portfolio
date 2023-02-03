@@ -1,22 +1,20 @@
-const Sequelize = require('sequelize');
-const { config } = require('../config/db.config');
-// eslint-disable-next-line no-undef
-const ENV = process.env.NODE_ENV;
+const Sequelize = require("sequelize");
+const { config } = require("../config/db.config");
 
-const sequelize = new Sequelize(
-  config[ENV].DB,
-  config[ENV].USER,
-  config[ENV].PASSWORD,
+const connexion = new Sequelize(
+  config.DEV.DB,
+  config.DEV.USER,
+  config.DEV.PASSWORD,
   {
-    host: config[ENV].HOST,
-    dialect: config[ENV].dialect,
+    host: config.DEV.HOST,
+    dialect: config.DEV.dialect,
     operatorsAliases: false,
     autoreconnect: true,
     pool: {
-      max: config[ENV].pool.max,
-      min: config[ENV].pool.min,
-      acquire: config[ENV].pool.acquire,
-      idle: config[ENV].pool.idle,
+      max: config.DEV.pool.max,
+      min: config.DEV.pool.min,
+      acquire: config.DEV.pool.acquire,
+      idle: config.DEV.pool.idle,
     },
   }
 );
@@ -24,12 +22,8 @@ const sequelize = new Sequelize(
 const db = {};
 
 db.Sequelize = Sequelize;
-db.sequelize = sequelize;
+db.connexion = connexion;
 
-db.user = require('./user')(sequelize, Sequelize);
-db.role = require('./role')(sequelize, Sequelize);
-
-db.role.hasMany(db.user);
-db.user.belongsTo(db.role);
+db.user = require("./user")(connexion, Sequelize);
 
 module.exports = db;
