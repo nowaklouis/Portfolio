@@ -20,7 +20,7 @@ export default function Soft() {
             />
             <FormControlLabel
               control={<Checkbox checked name="Autonomie" />}
-              label="Autonomie.js"
+              label="Autonomie"
               sx={{ color: "primary.light" }}
             />
             <FormControlLabel
@@ -44,7 +44,7 @@ export default function Soft() {
           <FormGroup>
             <FormControlLabel
               control={<Checkbox checked name="Collaboration" />}
-              label="Collaboration.js"
+              label="Collaboration"
               sx={{ color: "primary.light" }}
             />
             <FormControlLabel

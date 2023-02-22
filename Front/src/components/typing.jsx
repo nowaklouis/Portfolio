@@ -1,7 +1,7 @@
 import React from "react";
 import Typed from "typed.js";
 
-const words = ["DEV", "WEB", "FRONTEND", "MONTAGNE"];
+const words = ["DEV", "WEB", "JAVASCRIPT"];
 
 class Typing extends React.Component {
   componentDidMount() {

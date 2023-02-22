@@ -6,10 +6,9 @@ import Intro from "../components/intro";
 import TableExperience from "../components/tableExperience";
 import Projets from "../components/Projet";
 import Contact from "../components/Contact";
-import EasterEgg from "../components/EasterEgg";
-import FinalEasterEgg from "../components/FinalEasterEgg";
 import LineRight from "../components/LineRight";
 import LineLeft from "../components/LineLeft";
+import BackHeader from "../components/BackHeader";
 
 export default function Home() {
   return (
@@ -33,12 +32,11 @@ export default function Home() {
         <Intro />
         <AboutMe />
         <TableExperience />
-        <FinalEasterEgg />
         <Projets />
         <Contact />
-        <EasterEgg />
         <LineLeft />
         <LineRight />
+        <BackHeader />
       </Stack>
     </>
   );

@@ -1,31 +1,29 @@
-import * as React from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
-import * as Scroll from "react-scroll";
 import { Link } from "react-scroll/modules";
 
 function NavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (e) => {
     setAnchorElNav(null);
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "#013328" }}>
       <Container maxWidth="xl" sx={{ backgroundColor: "#013328" }}>
         <Toolbar disableGutters sx={{ paddingLeft: "10px" }}>
           <Box
@@ -69,12 +67,48 @@ function NavBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem onClick={handleCloseNavMenu} sx={{ color: "#CC8B65" }}>
+              <MenuItem sx={{ color: "#CC8B65" }}>
                 <Stack>
-                  <Typography textAlign="start">Présentation</Typography>
-                  <Typography textAlign="start">Expérience</Typography>
-                  <Typography textAlign="start">Projet</Typography>
-                  <Typography textAlign="start">Contact</Typography>
+                  <Link
+                    onClick={handleCloseNavMenu}
+                    to="Presentation"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    Présentation
+                  </Link>
+                  <Link
+                    onClick={handleCloseNavMenu}
+                    to="Experience"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    Expérience
+                  </Link>
+                  <Link
+                    onClick={handleCloseNavMenu}
+                    to="Projet"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    Projet
+                  </Link>
+                  <Link
+                    onClick={handleCloseNavMenu}
+                    to="Contact"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    Contact
+                  </Link>
                 </Stack>
               </MenuItem>
             </Menu>
@@ -87,7 +121,6 @@ function NavBar() {
             }}
           >
             <Button
-              onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
                 color: "#CC8B65",
@@ -105,7 +138,6 @@ function NavBar() {
               </Link>
             </Button>
             <Button
-              onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
                 color: "#CC8B65",
@@ -123,7 +155,6 @@ function NavBar() {
               </Link>
             </Button>
             <Button
-              onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
                 color: "#CC8B65",
@@ -141,7 +172,6 @@ function NavBar() {
               </Link>
             </Button>
             <Button
-              onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
                 color: "#CC8B65",

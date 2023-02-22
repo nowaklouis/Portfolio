@@ -50,17 +50,6 @@ const InfoProjet = [
     Team: "false",
     img: "/WildWood.png",
   },
-  {
-    id: 5,
-    name: "Festival de la binch",
-    base: "HTML | CSS | JavaScript",
-    date: "09/2022",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus corporis veritatis nemo obcaecati excepturi rem nulla nisi a earum voluptatum amet asperiores ipsum iusto, ullam placeat magnam eligendi aliquid accusantium",
-    link: `/MExico.jpg`,
-    Team: "false",
-    img: "/projet 5.png",
-  },
 ];
 
 export default function Projets() {

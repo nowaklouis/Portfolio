@@ -12,7 +12,7 @@ export default function resume() {
       }}
       sx={{ color: "info.main", marginTop: "1.5rem" }}
     >
-      Un Petit Résumé ?
+      voici mon CV
     </Button>
   );
 }
