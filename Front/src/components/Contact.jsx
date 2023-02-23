@@ -69,11 +69,13 @@ export default function OutlinedCard() {
         variant="outlined"
         sx={{
           background: "rgba(0, 0, 0, 0.3)",
-          width: "60%",
+          width: { xs: "95%", md: "60%" },
         }}
       >
         <CardContent>
-          <Typography variant="h2">Je ne mord pas</Typography>
+          <Typography variant="h2">
+            Pour me contacter, c'est ici ;&#41;
+          </Typography>
           <form>
             <Grid container spacing={1} sx={{ paddingTop: "3rem" }}>
               <Grid xs={12} sm={6} item>

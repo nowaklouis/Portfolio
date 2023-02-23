@@ -10,13 +10,17 @@ export default function AboutMe() {
   return (
     <Box
       id="Presentation"
-      sx={{ paddingTop: "20rem", display: "flex", justifyContent: "center" }}
+      sx={{
+        marginTop: { xs: "50px", md: "20rem" },
+        display: "flex",
+        justifyContent: "center",
+      }}
     >
       <Card
         sx={{
-          display: { md: "flex", sx: "none" },
+          display: { md: "flex" },
           justifyContent: "center",
-          width: { md: "60%", sx: "90%" },
+          width: { md: "60%", xs: "95%" },
           background: "rgba(0, 0, 0, 0.1)",
         }}
       >

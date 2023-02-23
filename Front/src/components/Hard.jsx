@@ -7,7 +7,7 @@ import Checkbox from "@mui/material/Checkbox";
 
 export default function Hard() {
   return (
-    <Box sx={{ display: { md: "flex", sx: "none" }, justifyContent: "center" }}>
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
       <FormControl sx={{ m: 3 }} variant="standard">
         <FormGroup>
           <FormControlLabel

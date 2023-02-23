@@ -85,7 +85,7 @@ export default function Projets() {
                 <Card
                   sx={{
                     background: "rgba(0, 0, 0, 0.1)",
-                    width: "60%",
+                    width: { xs: "95%", md: "60%" },
                     display: { md: "flex", sx: "none" },
                   }}
                 >
