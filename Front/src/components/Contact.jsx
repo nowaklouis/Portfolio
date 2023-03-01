@@ -60,10 +60,38 @@ export default function OutlinedCard() {
     setSend({ ...send, [e.target.name]: e.target.value });
   };
 
+  const slideBottom = (elem, delay, duration) => {
+    gsap.fromTo(
+      elem,
+      {
+        opacity: 0,
+        y: -200,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: elem,
+          start: "top center",
+          end: "bottom center",
+        },
+      }
+    );
+  };
+  useEffect(() => {
+    slideBottom(".sect4");
+  }, []);
+
   return (
     <Box
+      className="sect4"
       id="Contact"
-      sx={{ display: "flex", justifyContent: "center", paddingTop: "5rem" }}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        paddingTop: "5rem",
+        zIndex: "10",
+      }}
     >
       <Card
         variant="outlined"

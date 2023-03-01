@@ -5,8 +5,31 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Typing from "../components/typing";
+import { useEffect } from "react";
 
 export default function AboutMe() {
+  const slideLeft = (elem, delay, duration) => {
+    gsap.fromTo(
+      elem,
+      {
+        opacity: 0,
+        x: -200,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: elem,
+          start: "top center",
+          end: "bottom center",
+        },
+      }
+    );
+  };
+  useEffect(() => {
+    slideLeft(".sect1");
+  }, []);
+
   return (
     <Box
       id="Presentation"
@@ -17,6 +40,7 @@ export default function AboutMe() {
       }}
     >
       <Card
+        className="sect1"
         sx={{
           display: { md: "flex" },
           justifyContent: "center",

@@ -4,6 +4,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { Box, Typography, Card, Button } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
+import { useEffect } from "react";
 
 const InfoProjet = [
   {
@@ -70,8 +71,34 @@ export default function Projets() {
   //   setProjetP(p);
   // };
 
+  const slideLeft = (elem, delay, duration) => {
+    gsap.fromTo(
+      elem,
+      {
+        opacity: 0,
+        x: -200,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: elem,
+          start: "top center",
+          end: "bottom center",
+        },
+      }
+    );
+  };
+  useEffect(() => {
+    slideLeft(".sect3");
+  }, []);
+
   return (
-    <Box id="Projet" sx={{ paddingTop: "60px" }}>
+    <Box
+      className="sect3"
+      id="Projet"
+      sx={{ paddingTop: "60px", zIndex: "10" }}
+    >
       <Typography variant="h1" color="info.main" sx={{ textAlign: "center" }}>
         Projet JavaScript
       </Typography>
@@ -80,8 +107,8 @@ export default function Projets() {
       >
         <Stack spacing={2}>
           {InfoProjet.filter((result) => result.id === projetR).map(
-            (projet) => (
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
+            (projet, id) => (
+              <Box key={id} sx={{ display: "flex", justifyContent: "center" }}>
                 <Card
                   sx={{
                     background: "rgba(0, 0, 0, 0.1)",

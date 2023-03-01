@@ -12,6 +12,7 @@ export default function BackHeader() {
         top: "88%",
         left: "90%",
         display: { xs: "none", md: "block" },
+        zIndex: "10",
       }}
     >
       <Link to="intro" spy={true} smooth={true} offset={50} duration={500}>
